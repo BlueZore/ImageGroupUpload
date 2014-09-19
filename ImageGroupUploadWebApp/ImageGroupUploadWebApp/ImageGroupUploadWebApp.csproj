@@ -66,7 +66,11 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\001.png" />
+    <Content Include="Images\002.png" />
+    <Content Include="Images\tmp.png" />
     <Content Include="JS\jquery-1.4.1.min.js" />
+    <Content Include="JS\uploadify\jquery.uploadify.js" />
     <Content Include="JS\uploadify\Uploadify 3.2 参数.docx" />
     <Content Include="UploadHandler.ashx" />
     <EntityDeploy Include="IGU.edmx">

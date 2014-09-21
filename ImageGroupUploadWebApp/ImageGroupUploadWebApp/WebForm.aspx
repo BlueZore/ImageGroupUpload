@@ -32,6 +32,7 @@
         .uploader_main_btn_area {
             height: 65px;
             margin-top: 12px;
+            font-size: 20px;
         }
 
         #file_upload_main {
@@ -40,21 +41,12 @@
             box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
             color: #fff;
             cursor: pointer;
-            font-size: 20px;
             margin: auto 0;
         }
 
         .uploadfileQueue_btn_area {
             float: right;
             margin-right: 20px;
-        }
-
-        #file_upload_append {
-            background: none repeat scroll 0 0 #00b7ee;
-            border-radius: 3px;
-            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-            color: #fff;
-            cursor: pointer;
             font-size: 16px;
             text-align: center;
         }
@@ -94,7 +86,7 @@
 
         <asp:HiddenField ID="hidParentID" runat="server" />
 
-        <div class="uploader">
+        <div class="uploader" id="uploader001">
             <div class="uploader_main">
                 <div class="uploader_main_btn_area">
                     <div id="file_upload_main">点击选择图片</div>
@@ -104,12 +96,11 @@
         </div>
 
 
-        <div class="uploader" style="padding: 5px;">
+        <div class="uploader" style="padding: 5px; display: none;" id="uploader002">
             <ul id="uploadfileQueue">
             </ul>
 
             <div class="uploadfileQueue_btn_area">
-                <div id="file_upload_append">追加图片</div>
             </div>
         </div>
 

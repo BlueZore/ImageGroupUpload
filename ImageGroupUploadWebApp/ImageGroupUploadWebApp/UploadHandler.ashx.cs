@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -52,7 +53,9 @@ namespace ImageGroupUploadWebApp
                 db.SDMS_IGU.Add(model);
                 db.SaveChanges();
 
-                FileID = "/UpLoadFiles/IGU/" + DateTime.Now.ToString("yyyyMMdd") + "/" + FileID + "." + FileType;
+                MemoryStreamSmall(file, uploadPath, FileType, 120, 120);
+
+                FileID = "/UpLoadFiles/IGU/" + DateTime.Now.ToString("yyyyMMdd") + "/" + FileID + "A." + FileType;
             }
             context.Response.Write(FileID);
         }
@@ -63,6 +66,38 @@ namespace ImageGroupUploadWebApp
             {
                 return false;
             }
+        }
+
+        void MemoryStreamSmall(HttpPostedFile hpFile, string name, string type, int Width, int Height)
+        {
+            Image img = Image.FromStream(hpFile.InputStream);
+            Bitmap bit = new Bitmap(img);
+
+            if (bit.Width > Width || bit.Height > Height)
+            {
+
+                int desiredHeight = bit.Height;
+
+                int desiredWidth = bit.Width;
+
+                double heightRatio = (double)desiredHeight / desiredWidth;
+
+                double widthRatio = (double)desiredWidth / desiredHeight;
+
+
+                if (heightRatio > 1)
+                {
+                    Width = Convert.ToInt32(Height * widthRatio);
+                }
+                else
+                {
+                    Height = Convert.ToInt32(Width * heightRatio);
+                }
+
+                bit = new Bitmap(bit, Width, Height);//图片缩放
+            }
+
+            bit.Save(name.Substring(0, name.LastIndexOf('.')) + "A." + type, System.Drawing.Imaging.ImageFormat.Jpeg);
         }
     }
 }

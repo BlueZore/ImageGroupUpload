@@ -180,6 +180,7 @@ a.fm_main_queue_head_close {
         border: 1px solid #00b7ee;
         float: left;
         list-style: none;
+        position: relative;
     }
 
 .uploadfileQueue_item {

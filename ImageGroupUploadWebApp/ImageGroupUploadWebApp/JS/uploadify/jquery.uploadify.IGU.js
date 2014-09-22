@@ -815,18 +815,18 @@ Released under the MIT License <http://www.opensource.org/licenses/mit-license.p
             var queuedFile = {};
             for (var n in this.queueData.files) {
                 queuedFile = this.queueData.files[n];
-                if (queuedFile.uploaded != true && queuedFile.name == file.name) {
-                    var replaceQueueItem = confirm('The file named "' + file.name + '" is already in the queue.\nDo you want to replace the existing item in the queue?');
-                    if (!replaceQueueItem) {
-                        this.cancelUpload(file.id);
-                        this.queueData.filesCancelled++;
-                        return false;
-                    } else {
-                        $('#' + queuedFile.id).remove();
-                        this.cancelUpload(queuedFile.id);
-                        this.queueData.filesReplaced++;
-                    }
-                }
+                //if (queuedFile.uploaded != true && queuedFile.name == file.name) {
+                //    var replaceQueueItem = confirm('The file named "' + file.name + '" is already in the queue.\nDo you want to replace the existing item in the queue?');
+                //    if (!replaceQueueItem) {
+                //        this.cancelUpload(file.id);
+                //        this.queueData.filesCancelled++;
+                //        return false;
+                //    } else {
+                //        $('#' + queuedFile.id).remove();
+                //        this.cancelUpload(queuedFile.id);
+                //        this.queueData.filesReplaced++;
+                //    }
+                //}
             }
 
             // Get the size of the file

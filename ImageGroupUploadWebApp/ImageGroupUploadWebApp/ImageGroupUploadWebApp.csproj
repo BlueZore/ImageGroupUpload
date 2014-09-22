@@ -72,6 +72,7 @@
     <Content Include="Images\image_08af510.png" />
     <Content Include="Images\tmp.png" />
     <Content Include="index.aspx" />
+    <Content Include="JS\JavaScript1.js" />
     <Content Include="JS\jquery-1.4.1.min.js" />
     <Content Include="JS\uploadify\jquery.uploadify.IGU.js" />
     <Content Include="JS\uploadify\Uploadify 3.2 参数.docx" />

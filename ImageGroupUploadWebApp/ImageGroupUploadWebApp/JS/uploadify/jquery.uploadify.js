@@ -860,6 +860,11 @@ Released under the MIT License <http://www.opensource.org/licenses/mit-license.p
             // Create the file item template
             if (settings.itemTemplate == false) {
                 settings.itemTemplate = '<li>\
+                                            <div class="file-panel">\
+                                                <span class="cancel">删除</span>\
+                                                <span class="moveRight">右移</span>\
+                                                <span class="moveLeft">左移</span>\
+                                            </div>\
                                             <div class="uploadfileQueue_item">\
                                                 <img src="Images/tmp.png" />\
                                             </div>\

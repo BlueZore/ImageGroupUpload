@@ -59,16 +59,12 @@
         onUploadStart: function (file) {
             //alert($("#uploader002").is(":hidden"));
 
-            if ($("#uploader002").is(":hidden")) {
-                $("#uploader001").css({ height: "0px", border: "0px", "margin-top": "0px" });
-                $("#uploader001 .uploader_main,.uploader_main").removeAttr("class");
-                $("#uploader001 .uploader_main,.uploader_main").css({ height: "0px", "line-height": "0px" });
-                $("#uploader001 p").remove();
-                $("#uploader002").show();
+            if ($("#uploader001 #uploadfileQueue").is(":hidden")) {
+                $("#uploader001 p,.uploader_logo").remove();
+                $("#uploader001 #uploadfileQueue").show();
+                $("#uploader001 .uploader_main_btn_area").attr("class", "uploadfileQueue_btn_area");
 
-                var $tmp = $("#file_upload_main");
-                $("#file_upload_main").remove();
-                $("#uploader002 .uploadfileQueue_btn_area").append($tmp);
+                var $tmp = $("#uploader001 #file_upload_main");
                 $tmp.css({ height: "30px", width: "100px" });
                 $tmp.find("div").css({ height: "30px", width: "100px", "line-height": "30px" });
                 $tmp.find("object").css({ height: "30px", width: "100px" });
@@ -80,4 +76,29 @@
 
     //file_upload居中
     $("#file_upload_main").css("margin-left", ($(".uploader_main_btn_area").width() - $("#file_upload_main").width()) / 2);
+
+    //删除
+    $("#uploader001 .cancel").live("click", function () {
+        $(this).parents("li").remove();
+    });
+
+    //右移
+    $("#uploader001 .moveRight").live("click", function () {
+        if ($(this).parents("li").next().size() > 0) {
+            var img1 = $(this).parents("li").find("img").attr("src");
+            var img2 = $(this).parents("li").next().find("img").attr("src");
+            $(this).parents("li").find("img").attr("src", img2);
+            $(this).parents("li").next().find("img").attr("src", img1);
+        }
+    });
+
+    //右移
+    $("#uploader001 .moveLeft").live("click", function () {
+        if ($(this).parents("li").prev().size() > 0) {
+            var img1 = $(this).parents("li").find("img").attr("src");
+            var img2 = $(this).parents("li").prev().find("img").attr("src");
+            $(this).parents("li").find("img").attr("src", img2);
+            $(this).parents("li").prev().find("img").attr("src", img1);
+        }
+    });
 });

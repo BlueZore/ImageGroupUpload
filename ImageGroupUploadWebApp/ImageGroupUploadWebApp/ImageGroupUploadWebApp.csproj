@@ -68,6 +68,7 @@
   <ItemGroup>
     <Content Include="Images\001.png" />
     <Content Include="Images\002.png" />
+    <Content Include="Images\image_08af510.png" />
     <Content Include="Images\tmp.png" />
     <Content Include="JS\jquery-1.4.1.min.js" />
     <Content Include="JS\uploadify\jquery.uploadify.js" />

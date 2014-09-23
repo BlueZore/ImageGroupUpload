@@ -46,7 +46,7 @@ namespace ImageGroupUploadWebApp
                 file.SaveAs(uploadPath);
 
                 SDMS_IGU model = new SDMS_IGU();
-                model.ID = Guid.NewGuid();
+                model.ID = new Guid(FileID);
                 model.IGUID = new Guid(FileParentID);
                 model.ImagePath = filePath;
                 model.CreatedDate = DateTime.Now;

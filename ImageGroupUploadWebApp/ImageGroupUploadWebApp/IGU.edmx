@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="SDMS_IGU">
           <Key>
             <PropertyRef Name="ID" />
@@ -13,6 +13,8 @@
           <Property Name="ImagePath" Type="varchar" MaxLength="100" />
           <Property Name="CreatedDate" Type="datetime" />
           <Property Name="IGUID" Type="uniqueidentifier" />
+          <Property Name="ImagePath_Name" Type="varchar" MaxLength="100" />
+          <Property Name="ImagePath_Type" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="tab_Work">
           <Key>
@@ -28,8 +30,7 @@
           <EntitySet Name="SDMS_IGU" EntityType="Self.SDMS_IGU" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tab_Work" EntityType="Self.tab_Work" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -41,6 +42,8 @@
           <Property Name="ImagePath" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="CreatedDate" Type="DateTime" Precision="3" />
           <Property Name="IGUID" Type="Guid" />
+          <Property Name="ImagePath_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ImagePath_Type" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="tab_Work">
           <Key>
@@ -65,6 +68,8 @@
           <EntitySetMapping Name="SDMS_IGU">
             <EntityTypeMapping TypeName="Model.SDMS_IGU">
               <MappingFragment StoreEntitySet="SDMS_IGU">
+                <ScalarProperty Name="ImagePath_Type" ColumnName="ImagePath_Type" />
+                <ScalarProperty Name="ImagePath_Name" ColumnName="ImagePath_Name" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
                 <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />

@@ -50,12 +50,14 @@ namespace ImageGroupUploadWebApp
                 model.IGUID = new Guid(FileParentID);
                 model.ImagePath = filePath;
                 model.CreatedDate = DateTime.Now;
+                model.ImagePath_Name = filePath.Substring(0, filePath.LastIndexOf('.'));
+                model.ImagePath_Type = "." + FileType;
                 db.SDMS_IGU.Add(model);
                 db.SaveChanges();
 
                 MemoryStreamSmall(file, uploadPath, FileType, 120, 120);
 
-                FileID = "/UpLoadFiles/IGU/" + DateTime.Now.ToString("yyyyMMdd") + "/" + FileID + "A." + FileType;
+                FileID = "/UpLoadFiles/IGU/" + model.ImagePath_Name + "A" + model.ImagePath_Type;
             }
             context.Response.Write(FileID);
         }

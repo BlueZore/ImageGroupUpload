@@ -18,5 +18,7 @@ namespace ImageGroupUploadWebApp
         public string ImagePath { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }
         public Nullable<System.Guid> IGUID { get; set; }
+        public string ImagePath_Name { get; set; }
+        public string ImagePath_Type { get; set; }
     }
 }
